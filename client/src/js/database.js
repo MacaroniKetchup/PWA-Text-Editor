@@ -13,9 +13,51 @@ const initdb = async () =>
   });
 
 // TODO: Add logic to a method that accepts some content and adds it to the database
-export const putDb = async (content) => console.error('putDb not implemented');
+// Export function to PUT to the database
+// Might still need to edit the (content) to be related to this app...
+export const putDb = async (content) => {
+  console.error('putDb not implemented');
+  console.log('PUT to the Database');
+
+  // Create Conenction to the DB, and DB Version
+  const jateDb = await openDb('jate', 1);
+
+  // Create a new transaction and specify the database and data privileges
+  const tx = jateDb.transaction('jate','readwrite');
+
+  // Open up the desired object store
+  const store = tx.objectStore('jate');
+
+  // Use the .getAll() method to get all data in the database
+  const request = store.add(content);
+
+  // Request confermation
+  const result = await request;
+  console.log('🚀 - data saved to the database', result);
+};
 
 // TODO: Add logic for a method that gets all the content from the database
-export const getDb = async () => console.error('getDb not implemented');
+// Export function to GET from database
+export const getDb = async () => {
+  console.error('getDb not implemented');
+  console.log('GET from the databse');
+
+  // Create Conenction to the DB, and DB Version
+  const jateDb = await openDb('jate', 1);
+
+  // Create new Transaction and specify the DB and data privilages
+  const tx = jateDb.transaction('jate', 'readonly');
+
+  // Open up the desired object store
+  const store = tx.objectStore('contact');
+
+  // getAll method to get all data in DB
+  const request = store.getAll();
+
+  // Conformation Request 
+  const result = await request;
+  console.log('result.value', result);
+  return result;
+};
 
 initdb();
