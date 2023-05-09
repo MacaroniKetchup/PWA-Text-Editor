@@ -14,7 +14,6 @@ const initdb = async () =>
 
 // TODO: Add logic to a method that accepts some content and adds it to the database
 // Export function to PUT to the database
-// Might still need to edit the (content) to be related to this app...
 export const putDb = async (content) => {
   console.error('putDb not implemented');
   console.log('PUT to the Database');
@@ -29,7 +28,7 @@ export const putDb = async (content) => {
   const store = tx.objectStore('jate');
 
   // Use the .getAll() method to get all data in the database
-  const request = store.add(content);
+  const request = store.put({ jate: content });
 
   // Request confermation
   const result = await request;
