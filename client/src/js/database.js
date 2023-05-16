@@ -19,7 +19,7 @@ export const putDb = async (content) => {
   console.log('PUT to the Database');
 
   // Create Conenction to the DB, and DB Version
-  const jateDb = await openDb('jate', 1);
+  const jateDb = await openDB('jate', 1);
 
   // Create a new transaction and specify the database and data privileges
   const tx = jateDb.transaction('jate','readwrite');
@@ -27,8 +27,8 @@ export const putDb = async (content) => {
   // Open up the desired object store
   const store = tx.objectStore('jate');
 
-  // Use the .getAll() method to get all data in the database
-  const request = store.put({ jate: content });
+  // Use the .put method to edit an item with the same key
+  const request = store.put({ id: id, jate: content });
 
   // Request confermation
   const result = await request;
@@ -42,13 +42,13 @@ export const getDb = async () => {
   console.log('GET from the databse');
 
   // Create Conenction to the DB, and DB Version
-  const jateDb = await openDb('jate', 1);
+  const jateDb = await openDB('jate', 1);
 
   // Create new Transaction and specify the DB and data privilages
   const tx = jateDb.transaction('jate', 'readonly');
 
   // Open up the desired object store
-  const store = tx.objectStore('contact');
+  const store = tx.objectStore('jate');
 
   // getAll method to get all data in DB
   const request = store.getAll();
