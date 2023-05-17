@@ -64,9 +64,10 @@ Lastly a list of our dependancies and devDependancies in our client folder level
 ======================================================================================
 ```
 ## Usage
+Click the link to [JATE: Just Another Text Editor](https://dashboard.heroku.com/apps/pure-beyond-85915) that will take you to the application. You can then start typing any text or code snippets you want in the application. Then you can click the ```install``` button on the top left corner of the application screen. This will prompt the user if they wish to install the application to their local machine. Once installed you can then open the application at any time and type or edit away!
 
 ## Demo
-![Just Another Text Editor Demo]()
+![Just Another Text Editor Demo](./demo/pwa-jate-demo.gif)
 ## Contributors
 If you would like to make contributions or edit this code on your own you can fork this project from the repo located on my GitHub profile. Or you can contact me via email, both of these will be located in the bottom of the README file or you can quick access my contact infrom via the table of contents.
 ## Contact-Info
